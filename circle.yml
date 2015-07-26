@@ -1,6 +1,6 @@
 checkout:
   post:
-    - ./downloadArtifact.sh $shpApiToken $BUILD_ID
+    - ./downloadArtifact.sh
     - tar xvzf Build.tar.gz
     - tar xvzf shippable/shippable/buildoutput/*.tgz
 
