@@ -16,6 +16,7 @@ test:
 
 dependencies:
   override:
+    - npm install -g grunt-cli
     - docker info
     - docker build -t j3ffrw2/heronode .
 
