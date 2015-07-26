@@ -2,7 +2,7 @@ checkout:
   post:
     - ./downloadArtifact.sh
     - tar xvzf Build.tar.gz
-    - tar xvzf shippable/shippable/buildoutput/*.tgz
+    - tar xvzf tmp/shippable/shippable/buildoutput/*.tgz
 
 machine:
   services:
