@@ -1,6 +1,5 @@
 checkout:
   post:
-    - mvn dependency:copy-dependencies -DoutputDirectory=./ -gs settings.xml
     - ./downloadArtifact.sh $shpApiToken $BUILD_ID
     - tar xvzf Build.tar.gz
     - tar xvzf shippable/shippable/buildoutput/*.tgz
