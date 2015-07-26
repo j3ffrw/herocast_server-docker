@@ -1,12 +1,18 @@
+machine:
+  node:
+    version: 0.11.14
+  services:
+    - docker
+
 checkout:
   post:
     - ./downloadArtifact.sh
     - tar xvzf Build.tar.gz
     - tar xvzf tmp/shippable/shippable/buildoutput/*.tgz
 
-machine:
-  services:
-    - docker
+test:
+  override:
+    - cd package; grunt
 
 dependencies:
   override:
