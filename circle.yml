@@ -1,6 +1,4 @@
 machine:
-  node:
-    version: 0.11.14
   services:
     - docker
 
@@ -12,11 +10,10 @@ checkout:
 
 test:
   override:
-    - cd package && npm install grunt && grunt
+    - docker images j3ffrw2/heronode | grep "j3ffrw2/heronode"
 
 dependencies:
   override:
-    - npm install -g grunt-cli
     - docker info
     - docker build -t j3ffrw2/heronode .
 
