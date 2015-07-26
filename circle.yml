@@ -12,7 +12,7 @@ checkout:
 
 test:
   override:
-    - cd package; grunt
+    - cd package && npm install grunt && grunt
 
 dependencies:
   override:
