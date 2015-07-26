@@ -1,0 +1,22 @@
+checkout:
+  post:
+    - mvn dependency:copy-dependencies -DoutputDirectory=./ -gs settings.xml
+    - curl -o Build.tar.gz `curl -H "Authorization: apiToken $shpApiToken" -X GET https://api.shippable.com/builds/$BUILD_ID/1/artifacts`
+    - tar xvzf Build.tar.gz
+    - tar xvzf shippable/shippable/buildoutput/*.tgz
+
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t j3ffrw2/heronode .
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL2 -u $DOCKER_USER2 -p $DOCKER_PASS
+      - docker push j3ffrw2/heronode
